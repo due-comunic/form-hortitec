@@ -189,10 +189,10 @@ export function Formulario1() {
     `;
 
     axios
-      .post("54.207.152.249:3333/send", {
+      .post("https://apisendemail2.herokuapp.com/send", {
         subject: "Formulario 1",
         from: "Formulario Hortitec <form@hortitec.com.br>",
-        to: [emailRemente, "pe.marques@icloud.com"],
+        to: [emailRemente, "montagemhortitec@rbbeventos.com.br"],
         hmtlContent: body
       })
       .then(() => {

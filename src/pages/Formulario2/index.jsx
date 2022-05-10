@@ -270,34 +270,15 @@ export function Formulario2() {
 
     `;
 
-    const headers = {
-      "api-key":
-        "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",
-    };
+ 
 
     axios
-      .post(
-        "https://api.sendinblue.com/v3/smtp/email",
-        {
-          sender: {
-            name: "Formulario Hortitec",
-            email: "form@hortitec.com.br",
-          },
-          to: [
-            {
-              email: "montagemhortitec@rbbeventos.com.br",
-              name: "Montagem Hortitec",
-            },
-            {
-              email: emailRemente,
-              name: nomeRemente,
-            },
-          ],
-          subject: "Formulario 2",
-          htmlContent: body,
-        },
-        { headers }
-      )
+      .post("https://apisendemail2.herokuapp.com/send", {
+        subject: "Formulario 2",
+        from: "Formulario Hortitec <form@hortitec.com.br>",
+        to: [emailRemente, "montagemhortitec@rbbeventos.com.br"],
+        hmtlContent: body
+      })
       .then(() => {
         window.location.replace(
           "https://hortitec.com.br/formularios/MsgSucesso.html"
